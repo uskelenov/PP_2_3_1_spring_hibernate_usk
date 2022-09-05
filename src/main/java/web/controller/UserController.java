@@ -1,4 +1,5 @@
 package web.controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,18 +22,7 @@ public class UserController {
     @GetMapping()
     public String getUsers(Model model) {
 
-//        userService.add(new User("User1", "lastName1", (byte) 21, "prof1"));
-//        userService.add(new User("User2", "lastName2", (byte) 22, "prof2"));
-//        userService.add(new User("User3", "lastName3", (byte) 23, "prof3"));
-//        userService.add(new User("User4", "lastName4", (byte) 24, "prof4"));
-//        userService.add(new User("User5", "lastName5", (byte) 25, "prof5"));
-
-
-//        userService.changeUser(new User(5L,"User5", "lastName5", (byte) 25, "prof5"));
-
-//        userService.deleteUser(6L);
-
-            model.addAttribute("users", userService.listUser());
+        model.addAttribute("users", userService.listUser());
 
         model.addAttribute("creatUser", new User());
 
@@ -84,32 +74,4 @@ public class UserController {
         userService.changeUser(editUser);
         return "redirect:/users";
     }
-
-//    @RequestMapping(value = "users", method = RequestMethod.POST)
-//    public String creatNewUser(@ModelAttribute("creatUser") User creatUser,
-//                        BindingResult bindingResult, Model model) {
-//        if (bindingResult.hasErrors()) {
-//            model.addAttribute("users", userService.listUser());
-//            return "users";
-//        }
-//        userService.add(creatUser);
-//        return "redirect:users";
-//    }
-
-//    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-//    public String deleteUser(@PathVariable("id") Long id) {
-//        userService.deleteUser(id);
-//        return "redirect:users";
-//    }
-
-//    @RequestMapping(value = "users", method = RequestMethod.POST)
-//    public String deleteUser(@ModelAttribute("deleteUser") User deleteUser,
-//                             BindingResult bindingResult, Model model) {
-//        if (bindingResult.hasErrors()) {
-//            model.addAttribute("users", userService.listUser());
-//            return "users";
-//        }
-//        userService.deleteUser();
-//        return "redirect:users";
-//    }
 }

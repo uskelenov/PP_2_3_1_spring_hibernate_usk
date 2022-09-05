@@ -23,7 +23,8 @@ public class User {
     @Column(name = "profession")
     private String profession;
 
-    public User() {}
+    public User() {
+    }
 
     public User(String name, String lastName, Byte age, String profession) {
         this.name = name;
