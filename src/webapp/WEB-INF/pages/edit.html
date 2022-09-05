@@ -8,17 +8,16 @@
 <body>
     <h1 th:text="|Update ${editUser.getLastName()} ${editUser.getName()}|">Update User</h1>
     <form th:method="PATCH" th:action="@{/users/{id}(id=${editUser.getId()})}" th:object="${editUser}">
-
         <input type="hidden" id="id" th:field="*{id}" th:value="${editUser.getId()}" disabled>
         <input id="name" type="text" th:field="*{name}" placeholder="place name">
         <input id="lastName" type="text" th:field="*{lastName}" placeholder="place lastname">
         <input id="age" type="text" th:field="*{age}" placeholder="place age">
         <p th:if="${#fields.hasErrors('age')}" th:class="${#fields.hasErrors('age')} ? error_age">Invalid Age</p>
         <input id="profession" type="text" th:field="*{profession}" placeholder="place profession">
-        <br />
+        <br/>
         <input type="submit" value="Edit User">
     </form>
-    <br />
+    <br/>
     <a th:href="@{/users/{id}(id=${editUser.getId()})}">COME BACK</a>
 </body>
 </html>
